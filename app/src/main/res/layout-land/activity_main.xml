@@ -4,8 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/pointsDisplay"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="64dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.028" />
 
     <TextView
         android:id="@+id/questionDisplay"
@@ -15,35 +30,29 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="250dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="177dp"
+        android:layout_width="320dp"
         android:layout_height="106dp"
         android:layout_marginStart="117dp"
         android:layout_marginEnd="117dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginBottom="32dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             style="?android:attr/buttonBarStyle"
-            android:layout_width="177dp"
+            android:layout_width="match_parent"
             android:layout_height="53dp"
             android:orientation="horizontal">
 
@@ -52,6 +61,7 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:background="@android:color/black"
                 android:text="@string/true_button" />
 
@@ -60,12 +70,13 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:text="@string/false_button" />
         </LinearLayout>
 
         <LinearLayout
             style="?android:attr/buttonBarStyle"
-            android:layout_width="177dp"
+            android:layout_width="match_parent"
             android:layout_height="53dp"
             android:orientation="horizontal">
 
@@ -74,6 +85,7 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:text="@string/previous_button" />
 
             <Button
@@ -81,25 +93,14 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:text="@string/next_button" />
         </LinearLayout>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/pointsDisplay"
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.881" />
-
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

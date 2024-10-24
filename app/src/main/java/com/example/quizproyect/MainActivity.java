@@ -1,12 +1,14 @@
 package com.example.quizproyect;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -62,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     @Override
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("index", mCurrentIndex);
+        savedInstanceState.putInt("points", points);
+        savedInstanceState.putSerializable("answeredQuestions", answeredQuestions);
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -78,7 +87,12 @@ public class MainActivity extends AppCompatActivity {
         mFalseButton = (Button) findViewById(R.id.falseButton);
         mPointsDisplay = (TextView) findViewById(R.id.pointsDisplay);
         mPointsDisplay.setText("Points: " + String.valueOf(points));
-
+        if (savedInstanceState != null) {
+            mCurrentIndex = savedInstanceState.getInt("index", 0);
+            points = savedInstanceState.getInt("points", 0);
+            answeredQuestions = (HashMap<Integer, Boolean>) savedInstanceState.getSerializable("answeredQuestions");
+            mPointsDisplay.setText("Points: " + String.valueOf(points));
+        }
         updateQuestion();
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
